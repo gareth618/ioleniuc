@@ -1,0 +1,59 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import NavLink from '../components/general/NavLink.astro'
+
+type Props = {
+  title: string
+  category: string
+}
+
+const { title, category } = Astro.props
+---
+
+<html class="scroll-smooth" lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} – Iulian Oleniuc</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-gray-950 text-gray-200 antialiased [&_*:focus-visible]:outline-dashed [&_*:focus-visible]:outline-2 [&_*:focus-visible]:outline-offset-2 [&_*:focus-visible]:outline-gray-500">
+    <header class="sticky top-0 z-30 bg-gray-900 shadow-lg">
+      <div class="mx-auto flex max-w-screen-2xl justify-between px-12 py-8 max-md:p-4 [&>*]:w-fit">
+        <div class="text-2xl font-bold max-lg:text-xl max-md:hidden">Iulian Oleniuc</div>
+        <nav class="flex gap-4 max-lg:gap-2">
+          <NavLink link="/" title="Acasă" icon="🛖" color="text-yellow-300" active={category === 'home'} />
+          <NavLink link="/despre" title="Despre" icon="🦆" color="text-green-300" active={category === 'about'} />
+          <NavLink link="/articole" title="Articole" icon="📚" color="text-blue-300" active={category === 'papers'} />
+          <NavLink link="/proiecte" title="Proiecte" icon="🚀" color="text-indigo-300" active={category === 'projects'} />
+          <NavLink link="/blog" title="Blog" icon="✍️" color="text-purple-300" active={category === 'blog'} />
+        </nav>
+      </div>
+    </header>
+    <main class="bg-gray-950">
+      <div class="mx-auto max-w-screen-2xl p-12 max-md:px-6">
+        <slot />
+      </div>
+    </main>
+    <footer class="flex justify-center bg-gray-900 py-8 shadow-lg max-md:py-4">
+      <div class="text-lg font-semibold text-gray-600">Site făcut de Iulian Oleniuc</div>
+    </footer>
+    <style is:global>
+      p,
+      li {
+        line-height: 1.618 !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.2 !important;
+      }
+    </style>
+  </body>
+</html>

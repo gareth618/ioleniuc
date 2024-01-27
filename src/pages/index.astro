@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Arrows from '../components/general/Arrows.vue'
+import PhotoAtom from '../components/general/PhotoAtom.vue'
+import HomeSection from '../components/general/HomeSection.astro'
+import TechnologyCollection from '../components/collections/TechnologyCollection.astro'
+import PaperCollection from '../components/collections/PaperCollection.astro'
+import ProjectCollection from '../components/collections/ProjectCollection.astro'
+import PostCollection from '../components/collections/PostCollection.astro'
+---
+
+<BaseLayout title="Acasă" category="home">
+  <div class="flex items-center justify-between gap-10 max-lg:flex-col">
+    <div class="flex max-w-screen-md flex-col items-center justify-center gap-10 max-lg:max-w-full">
+      <h1 class="max-sm-text-3xl w-full text-6xl font-bold">Iulian Oleniuc</h1>
+      <p class="w-full text-2xl max-sm:text-xl">Mă numesc Iulian și sunt masterand la Facultatea de Informatică Iași. Sunt pasionat de filosofie politică, mă implic adesea în comunitatea română de programare competitivă și din când în când creez site-uri web.</p>
+      <Arrows />
+    </div>
+    <PhotoAtom client:visible />
+  </div>
+  <HomeSection title="💻 Tehnologii" link="/despre">
+    <TechnologyCollection />
+  </HomeSection>
+  <HomeSection title="📚 Articole" link="/articole">
+    <PaperCollection selection={[2, 4, 8]} />
+  </HomeSection>
+  <HomeSection title="🚀 Proiecte" link="/proiecte">
+    <ProjectCollection selection={[1, 2, 3, 4]} />
+  </HomeSection>
+  <HomeSection title="✍️ Blog" link="/blog">
+    <PostCollection limit={5} />
+  </HomeSection>
+</BaseLayout>

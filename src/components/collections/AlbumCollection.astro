@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content'
+import AlbumCard from '../cards/AlbumCard.astro'
+
+const albums = (await getCollection('albums'))
+  .map(album => ({
+    title: album.data.title,
+    artist: album.data.artist,
+    date: album.data.date,
+    cover: '/albume/' + album.id + '.webp',
+  }))
+  .sort((album1, album2) => {
+    if (album1.date > album2.date) return -1
+    if (album1.date < album2.date) return +1
+    return 0
+  })
+---
+
+<section class="my-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+  {albums.map(album => <AlbumCard title={album.title} artist={album.artist} date={album.date} cover={album.cover} />)}
+</section>

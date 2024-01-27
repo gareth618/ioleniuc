@@ -1,0 +1,5 @@
+title: Algoritmul Aho-Corasick
+icon: 🏝️
+abstract:
+  Lecție pentru InfoGym.
+  Prezintă algoritmul Aho-Corasick pentru string matching, pornind de la conceptul de automat finit determinist și de la algoritmul KMP.

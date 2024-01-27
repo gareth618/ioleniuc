@@ -1,0 +1,24 @@
+---
+import Twemoji from './Twemoji.vue'
+
+type Props = {
+  link: string
+  title: string
+  icon: string
+  color: string
+  active: boolean
+}
+
+const { link, title, icon, color, active } = Astro.props
+---
+
+<a class={`flex items-center h-8 bg-gray-800 hover:bg-gray-700 ${active ? color : ''}`} href={link}>
+  {
+    icon && (
+      <div class="aspect-square h-full bg-gray-700 p-2">
+        <Twemoji emoji={icon} />
+      </div>
+    )
+  }
+  <div class={`font-bold px-2 ${!active ? 'max-sm:hidden' : ''}`}>{title}</div>
+</a>

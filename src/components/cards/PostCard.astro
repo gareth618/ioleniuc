@@ -1,0 +1,27 @@
+---
+import Twemoji from '../general/Twemoji.vue'
+import { dateToString } from '../../utils/dates'
+
+type Props = {
+  slug: string
+  title: string
+  icon: string
+  date: Date
+}
+
+const { slug, title, icon, date } = Astro.props
+---
+
+<a class="flex items-stretch justify-between bg-gray-800 shadow-lg hover:bg-gray-700" href={'/' + slug}>
+  <div class="flex items-center bg-gray-700 max-sm:hidden">
+    <div class="aspect-square h-14 p-3" transition:name={slug}>
+      <Twemoji emoji={icon} />
+    </div>
+  </div>
+  <div class="flex grow items-center p-4">
+    <div class="text-xl font-semibold max-sm:text-base">{title}</div>
+  </div>
+  <div class="flex min-w-fit items-center p-4 max-sm:hidden">
+    <div class="font-mono">{dateToString(date)}</div>
+  </div>
+</a>

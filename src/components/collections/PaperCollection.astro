@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import PaperCard from '../cards/PaperCard.astro'
+import { fileIndex, fileName } from '../../utils/files'
+
+type Props = {
+  selection?: number[]
+}
+
+const { selection } = Astro.props
+
+const papers = (await getCollection('papers'))
+  .filter(paper => (selection ? selection.includes(fileIndex(paper.id)) : true))
+  .sort((paper1, paper2) => fileIndex(paper1.id) - fileIndex(paper2.id))
+  .map(paper => ({
+    title: paper.data.title,
+    icon: paper.data.icon,
+    abstract: paper.data.abstract,
+    link: paper.data.link ?? '/articole/' + fileName(paper.id) + '.pdf',
+  }))
+---
+
+<section class="my-8 grid w-fit gap-8 lg:grid-cols-2 xl:grid-cols-3">
+  {papers.map(paper => <PaperCard title={paper.title} icon={paper.icon} abstract={paper.abstract} link={paper.link} />)}
+</section>

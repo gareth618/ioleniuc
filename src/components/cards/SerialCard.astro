@@ -1,0 +1,17 @@
+---
+import Rating from '../general/Rating.astro'
+
+type Props = {
+  title: string
+  rating: string
+  cover: string
+}
+
+const { title, rating, cover } = Astro.props
+---
+
+<article class="flex flex-col items-center gap-4 bg-gray-800 p-4 shadow-lg">
+  <img class="h-44" src={cover} alt={title} />
+  <div class="font-semibold">{title}</div>
+  <Rating rating={rating} />
+</article>

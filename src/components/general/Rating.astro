@@ -1,0 +1,22 @@
+---
+import Twemoji from '../general/Twemoji.vue'
+
+type Props = {
+  rating: string
+}
+
+const { rating } = Astro.props
+
+const emoji = rating.startsWith('⭐️') ? '⭐️' : rating.startsWith('💩') ? '💩' : rating.startsWith('🛠️') ? '🛠️' : '❤️'
+const repeat = rating.length / emoji.length
+---
+
+<div class="flex gap-1">
+  {
+    new Array(repeat).fill('').map(_ => (
+      <div class="aspect-square h-4">
+        <Twemoji emoji={emoji} />
+      </div>
+    ))
+  }
+</div>

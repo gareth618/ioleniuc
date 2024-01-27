@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import MarkdownContainer from '../components/general/MarkdownContainer.astro'
+import Twemoji from '../components/general/Twemoji.vue'
+import { dateToString } from '../utils/dates'
+import { slugify } from '../utils/slugs'
+
+type Props = {
+  slug: string
+  title: string
+  icon: string
+  date: Date
+  tags: string[]
+}
+
+const { slug, title, icon, date, tags } = Astro.props
+---
+
+<BaseLayout title={title} category="blog">
+  <div class="flex justify-between gap-16 max-lg:flex-col max-lg:gap-8">
+    <div class="max-w-screen-md">
+      <MarkdownContainer title={title}>
+        <slot />
+      </MarkdownContainer>
+    </div>
+    <aside class="flex max-w-96 shrink-0 grow flex-col gap-8 max-lg:w-full">
+      <div class="aspect-square max-h-72 px-8" transition:name={slug}>
+        <Twemoji emoji={icon} />
+      </div>
+      <section class="grid grid-cols-[auto_1fr] gap-4 bg-gray-800 p-4">
+        <div class="shrink font-bold text-purple-300">Autor</div>
+        <div>Iulian Oleniuc</div>
+        <div class="shrink font-bold text-purple-300">Dată</div>
+        <div>{dateToString(date)}</div>
+      </section>
+      <section class="flex flex-wrap gap-2">
+        {
+          tags.map(tag => (
+            <a class="bg-gray-800 px-2 py-1 hover:bg-gray-700" href={'/etichete/' + slugify(tag)}>
+              {tag}
+            </a>
+          ))
+        }
+      </section>
+    </aside>
+  </div>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import Twemoji from '../general/Twemoji.vue'
+
+type Props = {
+  title: string
+  icon: string
+  abstract: string
+  github?: string
+  link?: string
+}
+
+const { title, icon, abstract, github, link } = Astro.props
+---
+
+<article class="flex max-w-xs flex-col bg-gray-700 shadow-lg transition-transform">
+  <div class="bg-gray-800 p-4 text-xl font-bold">{title}</div>
+  <div class="flex flex-grow flex-col justify-between gap-4 p-4">
+    <div>{abstract}</div>
+    <div class="flex items-center justify-between">
+      <div class="aspect-square h-8">
+        <Twemoji emoji={icon} />
+      </div>
+      <div class="flex gap-2 self-end">
+        {
+          github && (
+            <a class="w-fit bg-gray-800 px-3 py-2 font-bold hover:bg-gray-700" href={github} target="_blank">
+              COD
+            </a>
+          )
+        }
+        {
+          link && (
+            <a class="w-fit bg-gray-800 px-3 py-2 font-bold hover:bg-gray-700" href={link} target="_blank">
+              WEB
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</article>

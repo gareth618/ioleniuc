@@ -1,0 +1,18 @@
+---
+import IconHeader from '../general/IconHeader.astro'
+
+type Props = {
+  title: string
+  link: string
+}
+
+const { title, link } = Astro.props
+---
+
+<section class="mt-24">
+  <div class="flex items-center justify-between [&>h2]:m-0">
+    <IconHeader>{title}</IconHeader>
+    <a class="bg-gray-800 p-2 font-bold hover:bg-gray-700" href={link}>Vezi tot</a>
+  </div>
+  <slot />
+</section>
