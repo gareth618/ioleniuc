@@ -7,4 +7,5 @@ export function slugify(string: string) {
     .replaceAll('î', 'i')
     .replaceAll('ș', 's')
     .replaceAll('ț', 't')
+    .replace(/[^\w-]/g, '')
 }

@@ -2,7 +2,9 @@
 import Twemoji from './Twemoji.vue'
 import { slugify } from '../../utils/slugs'
 
-const text = await Astro.slots.render('default')
+let text = await Astro.slots.render('default')
+text = text.replace(/<img.+?alt="(?<emoji>.+?)".+?\/>/, (_match: string, emoji: string) => emoji)
+
 const index = text.indexOf(' ')
 const icon = text.slice(0, index)
 const title = text.slice(index + 1)
