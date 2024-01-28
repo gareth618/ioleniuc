@@ -9,7 +9,6 @@ export function emojiPlugin() {
       if (emojiRegex.test(node.value)) {
         node.type = 'html'
         node.value = twemoji.parse(node.value, { folder: 'svg', ext: '.svg' })
-        node.value = node.value.replaceAll('<img class="emoji"', '<img style="display: inline; height: 1em; margin-bottom: .15em"')
       }
     })
   }

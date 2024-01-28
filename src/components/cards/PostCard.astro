@@ -13,7 +13,7 @@ const { slug, title, icon, date } = Astro.props
 ---
 
 <a class="flex items-stretch justify-between bg-gray-800 shadow-lg hover:bg-gray-700" href={'/' + slug}>
-  <div class="flex items-center bg-gray-700 max-sm:hidden">
+  <div class="flex items-center bg-gray-700">
     <div class="aspect-square h-14 p-3" transition:name={slug}>
       <Twemoji emoji={icon} />
     </div>

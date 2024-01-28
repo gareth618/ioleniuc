@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import MarkdownContainer from '../components/general/MarkdownContainer.astro'
 import PaperCollection from '../components/collections/PaperCollection.astro'
 ---
 
 <BaseLayout title="Articole" category="papers">
-  <PaperCollection />
+  <MarkdownContainer title="Articole">
+    <PaperCollection />
+  </MarkdownContainer>
 </BaseLayout>

@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import MarkdownContainer from '../components/general/MarkdownContainer.astro'
 import PostCollection from '../components/collections/PostCollection.astro'
 ---
 
 <BaseLayout title="Blog" category="blog">
-  <PostCollection />
+  <MarkdownContainer title="Blog">
+    <PostCollection />
+  </MarkdownContainer>
 </BaseLayout>
