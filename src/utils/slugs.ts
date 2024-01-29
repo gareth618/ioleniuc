@@ -8,4 +8,5 @@ export function slugify(string: string) {
     .replaceAll('ș', 's')
     .replaceAll('ț', 't')
     .replace(/[^\w-]/g, '')
+    .replace(/\-+/g, '-')
 }

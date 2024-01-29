@@ -17,12 +17,11 @@ const { title, category } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Blogul lui Iulian Oleniuc, masterand la Facultatea de Informatică Iași." />
-    <meta name="image" content="https://ioleniuc.ro/favicon.png" />
     <meta property="og:image" content="https://ioleniuc.ro/favicon.png" />
     <title>{title} – Iulian Oleniuc</title>
     <ViewTransitions />
   </head>
-  <body class="bg-gray-950 text-gray-200 antialiased [&_*:focus-visible]:outline-dashed [&_*:focus-visible]:outline-2 [&_*:focus-visible]:outline-offset-2 [&_*:focus-visible]:outline-gray-500">
+  <body class="bg-gray-950 text-gray-200 antialiased selection:bg-green-300 selection:text-gray-950 [&_*:focus-visible]:outline-dashed [&_*:focus-visible]:outline-2 [&_*:focus-visible]:outline-offset-2 [&_*:focus-visible]:outline-gray-500">
     <header class="sticky top-0 z-30 bg-gray-900 shadow-lg">
       <div class="mx-auto flex max-w-screen-2xl justify-between px-12 py-8 max-md:p-4 [&>*]:w-fit">
         <div class="text-2xl font-bold max-lg:text-xl max-md:hidden">Iulian Oleniuc</div>

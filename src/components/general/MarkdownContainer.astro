@@ -6,7 +6,7 @@ type Props = {
 const { title } = Astro.props
 ---
 
-<div class="[&_:where(p,_li)>a:hover>code]:bg-transparent [&_:where(p,_li)>a:hover]:bg-green-300 [&_:where(p,_li)>a:hover]:text-gray-950 [&_:where(p,_li)>a:hover]:no-underline [&_:where(p,_li)>a]:py-0.5 [&_:where(p,_li)>a]:underline [&_:where(p,_li)>a]:decoration-green-300 [&_:where(p,_li)>a]:underline-offset-4 [&_:where(p,_li)]:text-lg [&_:where(p,_li)]:text-gray-200 max-sm:[&_:where(p,_li)]:text-base [&_:where(p,_ul)]:my-8 [&_blockquote>:first-child]:mt-0 [&_blockquote>:last-child]:mb-0 [&_blockquote]:border-l-8 [&_blockquote]:border-gray-700 [&_blockquote]:bg-gray-800 [&_blockquote]:p-8 [&_code]:bg-gray-700 [&_code]:p-1 [&_code]:text-sm max-sm:[&_code]:text-xs [&_li]:marker:text-green-300 [&_ul]:list-disc [&_ul]:pl-8">
+<div class="[&_:where(p,_li)_a:hover>code]:bg-transparent [&_:where(p,_li)_a:hover]:bg-green-300 [&_:where(p,_li)_a:hover]:text-gray-950 [&_:where(p,_li)_a:hover]:no-underline [&_:where(p,_li)_a]:py-0.5 [&_:where(p,_li)_a]:underline [&_:where(p,_li)_a]:decoration-green-300 [&_:where(p,_li)_a]:underline-offset-4 [&_:where(p,_li)]:text-lg [&_:where(p,_li)]:text-gray-200 max-sm:[&_:where(p,_li)]:text-base [&_:where(p,_ul)]:my-8 [&_blockquote>:first-child]:mt-0 [&_blockquote>:last-child]:mb-0 [&_blockquote]:border-l-8 [&_blockquote]:border-gray-700 [&_blockquote]:bg-gray-800 [&_blockquote]:p-8 [&_code]:bg-gray-700 [&_code]:p-1 [&_code]:text-sm max-sm:[&_code]:text-xs [&_li]:marker:text-green-300 [&_ul]:list-disc [&_ul]:pl-8">
   <h1 class="mb-12 text-5xl font-bold">{title}</h1>
   <slot />
 </div>
