@@ -3,10 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Arrows from '../components/general/Arrows.vue'
 import PhotoAtom from '../components/general/PhotoAtom.vue'
 import HomeSection from '../components/general/HomeSection.astro'
+import PostCollection from '../components/collections/PostCollection.astro'
 import TechnologyCollection from '../components/collections/TechnologyCollection.astro'
 import PaperCollection from '../components/collections/PaperCollection.astro'
 import ProjectCollection from '../components/collections/ProjectCollection.astro'
-import PostCollection from '../components/collections/PostCollection.astro'
 ---
 
 <BaseLayout title="Acasă" category="home">
@@ -18,6 +18,9 @@ import PostCollection from '../components/collections/PostCollection.astro'
     </div>
     <PhotoAtom client:visible />
   </div>
+  <HomeSection title="✍️ Blog" link="/blog">
+    <PostCollection limit={5} />
+  </HomeSection>
   <HomeSection title="💻 Tehnologii" link="/despre">
     <TechnologyCollection />
   </HomeSection>
@@ -26,8 +29,5 @@ import PostCollection from '../components/collections/PostCollection.astro'
   </HomeSection>
   <HomeSection title="🚀 Proiecte" link="/proiecte">
     <ProjectCollection selection={[1, 2, 3, 4]} />
-  </HomeSection>
-  <HomeSection title="✍️ Blog" link="/blog">
-    <PostCollection limit={5} />
   </HomeSection>
 </BaseLayout>
