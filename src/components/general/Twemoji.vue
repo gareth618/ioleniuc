@@ -9,7 +9,9 @@ type Props = {
 const props = defineProps<Props>()
 
 const source = computed(() => {
-  return twemoji.parse(props.emoji, { folder: 'svg', ext: '.svg' }).match(/(?<=src=").+(?=")/)![0]
+  const oldSource = twemoji.parse(props.emoji, { folder: 'svg', ext: '.svg' }).match(/(?<=src=").+(?=")/)![0]
+  const lastSlashIndex = oldSource.lastIndexOf('/')
+  return 'https://abs-0.twimg.com/emoji/v2/svg/' + oldSource.slice(lastSlashIndex + 1)
 })
 </script>
 
