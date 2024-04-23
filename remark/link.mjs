@@ -9,7 +9,7 @@ export function textPlugin() {
       node.value = node.value.replaceAll('—', '–').replaceAll('---', '—')
       if (emojiRegex.test(node.value)) {
         node.type = 'html'
-        node.value = twemoji.parse(node.value, { folder: 'svg', ext: '.svg' })
+        node.value = twemoji.parse(node.value, { folder: 'svg', ext: '.svg' }).replaceAll('https://twemoji.maxcdn.com/v/14.0.2/svg/', 'https://abs-0.twimg.com/emoji/v2/svg/')
       }
     })
   }
