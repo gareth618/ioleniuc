@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CardSection from '../components/general/CardSection.astro'
+import TechnologyCard from '../components/cards/TechnologyCard.astro'
+import ProjectCard from '../components/cards/ProjectCard.astro'
+import PaperCard from '../components/cards/PaperCard.astro'
+import type { Technology, Project, Paper } from '../content/config'
+
+const technologies = (await getCollection('categories')).find(category => category.id === 'technologies')!.data as Technology[]
+const projects = (await getCollection('categories')).find(category => category.id === 'projects')!.data as Project[]
+const papers = (await getCollection('categories')).find(category => category.id === 'papers')!.data as Paper[]
+---
+
+<BaseLayout title="Profesional">
+  <h1 class="mb-12 text-5xl font-bold">Profesional</h1>
+  <CardSection title="💻 Tehnologii Cunoscute">
+    <section class="my-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {technologies.map(technology => <TechnologyCard name={technology} />)}
+    </section>
+  </CardSection>
+  <CardSection title="🚀 Proiecte Codate">
+    <section class="my-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {projects.map(project => <ProjectCard title={project.title} icon={project.icon} abstract={project.abstract} github={project.github} link={project.link} />)}
+    </section>
+  </CardSection>
+  <CardSection title="📖 Articole Scrise">
+    <section class="my-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      {papers.map(paper => <PaperCard title={paper.title} icon={paper.icon} abstract={paper.abstract} link={paper.link} />)}
+    </section>
+  </CardSection>
+</BaseLayout>

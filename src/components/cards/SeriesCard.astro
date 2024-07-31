@@ -1,0 +1,36 @@
+---
+import { slugify } from '../../utils/slugs'
+import Rating from '../general/Rating.astro'
+
+type Props = {
+  title: string
+  seasons: [number, number][]
+  rating: string
+}
+
+const { title, seasons, rating } = Astro.props
+---
+
+<article class="flex gap-4 bg-gray-800 p-4">
+  <img class="h-32" src={`/series/${slugify(title)}.webp`} alt={title} />
+  <div class="flex flex-col justify-between">
+    <div class="flex flex-col gap-2">
+      <div class="font-bold">{title}</div>
+      <div class="flex flex-col gap-0.5">
+        {
+          seasons.map((season, s) => (
+            <div class="flex gap-0.5">
+              {new Array(season[0]).fill('').map((_, e) => (
+                <div class="aspect-square h-1.5 bg-gray-600" title={`S${s + 1}E${e + 1}`} />
+              ))}
+              {new Array(season[1] - season[0]).fill('').map((_, e) => (
+                <div class="aspect-square h-1.5 border border-gray-600" title={`S${s + 1}E${e + 1}`} />
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <Rating rating={rating} />
+  </div>
+</article>

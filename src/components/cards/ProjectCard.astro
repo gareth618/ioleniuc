@@ -12,9 +12,9 @@ type Props = {
 const { title, icon, abstract, github, link } = Astro.props
 ---
 
-<article class="flex max-w-xs flex-col bg-gray-700 shadow-lg transition-transform">
-  <div class="bg-gray-800 p-4 text-xl font-bold">{title}</div>
-  <div class="flex flex-grow flex-col justify-between gap-4 p-4">
+<article class="flex flex-col">
+  <div class="bg-gray-800 p-4 font-bold">{title}</div>
+  <div class="flex flex-grow flex-col justify-between gap-4 bg-gray-700 p-4">
     <div>{abstract}</div>
     <div class="flex items-center justify-between">
       <div class="aspect-square h-8">
@@ -23,14 +23,14 @@ const { title, icon, abstract, github, link } = Astro.props
       <div class="flex gap-2 self-end">
         {
           github && (
-            <a class="w-fit bg-gray-800 px-3 py-2 font-bold hover:bg-gray-700" href={github} target="_blank">
+            <a class="w-fit bg-gray-800 px-2 py-1 font-semibold hover:bg-gray-700" href={github} target="_blank">
               COD
             </a>
           )
         }
         {
           link && (
-            <a class="w-fit bg-gray-800 px-3 py-2 font-bold hover:bg-gray-700" href={link} target="_blank">
+            <a class="w-fit bg-gray-800 px-2 py-1 font-semibold hover:bg-gray-700" href={link} target="_blank">
               WEB
             </a>
           )

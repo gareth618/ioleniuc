@@ -7,15 +7,22 @@ type Props = {
 
 const { rating } = Astro.props
 
-const emoji = rating.startsWith('⭐️') ? '⭐️' : rating.startsWith('💩') ? '💩' : rating.startsWith('🛠️') ? '🛠️' : '❤️'
+const emoji = rating.startsWith('⭐️') ? '⭐️' : rating.startsWith('💩') ? '💩' : '❤️'
 const repeat = rating.length / emoji.length
 ---
 
-<div class="flex gap-1">
+<div class="mb-1.5 flex gap-1">
   {
     new Array(repeat).fill('').map(_ => (
       <div class="aspect-square h-4">
         <Twemoji emoji={emoji} />
+      </div>
+    ))
+  }
+  {
+    new Array(5 - repeat).fill('').map(_ => (
+      <div class="aspect-square h-4 grayscale">
+        <Twemoji emoji="⭐️" />
       </div>
     ))
   }

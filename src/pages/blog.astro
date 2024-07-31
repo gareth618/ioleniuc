@@ -1,11 +1,47 @@
 ---
+import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import MarkdownContainer from '../components/general/MarkdownContainer.astro'
-import PostCollection from '../components/collections/PostCollection.astro'
+import CardSection from '../components/general/CardSection.astro'
+import PostCard from '../components/cards/PostCard.astro'
+import NoteCard from '../components/cards/NoteCard.astro'
+
+const posts = (await getCollection('posts'))
+  .map(post => ({
+    slug: post.slug,
+    title: post.data.title,
+    icon: post.data.icon,
+    date: post.data.date,
+    tags: post.data.tags,
+  }))
+  .sort((post1, post2) => {
+    if (post1.date > post2.date) return -1
+    if (post1.date < post2.date) return +1
+    return 0
+  })
+
+const notes = (await getCollection('notes'))
+  .map(note => ({
+    slug: note.slug,
+    title: note.data.title,
+    author: note.data.author,
+  }))
+  .sort((note1, note2) => {
+    if (note1.title > note2.title) return -1
+    if (note1.title < note2.title) return +1
+    return 0
+  })
 ---
 
-<BaseLayout title="Blog" category="blog">
-  <MarkdownContainer title="Blog">
-    <PostCollection />
-  </MarkdownContainer>
+<BaseLayout title="Blog">
+  <h1 class="mb-12 text-5xl font-bold">Blog</h1>
+  <CardSection title="📰 Însemnări">
+    <section class="my-8 flex flex-col gap-4">
+      {posts.map(post => <PostCard slug={post.slug} title={post.title} icon={post.icon} date={post.date} />)}
+    </section>
+  </CardSection>
+  <CardSection title="🏛️ Conspecte">
+    <section class="my-8 flex flex-col gap-4">
+      {notes.map(note => <NoteCard slug={note.slug} title={note.title} author={note.author} />)}
+    </section>
+  </CardSection>
 </BaseLayout>

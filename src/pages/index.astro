@@ -1,33 +1,26 @@
 ---
+import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Arrows from '../components/general/Arrows.vue'
-import PhotoAtom from '../components/general/PhotoAtom.vue'
-import HomeSection from '../components/general/HomeSection.astro'
-import PostCollection from '../components/collections/PostCollection.astro'
-import TechnologyCollection from '../components/collections/TechnologyCollection.astro'
-import PaperCollection from '../components/collections/PaperCollection.astro'
-import ProjectCollection from '../components/collections/ProjectCollection.astro'
+import MovingArrows from '../components/home/MovingArrows.vue'
+import PhotoAtom from '../components/home/PhotoAtom.vue'
+import IconHeader from '../components/general/IconHeader.astro'
+import MarkdownContainer from '../components/general/MarkdownContainer.astro'
+
+const { Content } = await (await getCollection('pages')).find(page => page.id === 'home.mdx')!.render()
 ---
 
-<BaseLayout title="Acasă" category="home">
-  <div class="flex items-center justify-between gap-10 max-lg:flex-col">
-    <div class="flex max-w-screen-md flex-col items-center justify-center gap-10 max-lg:max-w-full">
-      <h1 class="max-sm-text-3xl w-full text-6xl font-bold max-sm:text-5xl">Iulian Oleniuc</h1>
-      <p class="w-full text-2xl max-sm:text-xl">Mă numesc Iulian și sunt masterand la Facultatea de Informatică Iași. Sunt pasionat de filosofie politică, mă implic adesea în comunitatea română de programare competitivă și din când în când creez site-uri web.</p>
-      <Arrows />
+<BaseLayout title="Acasă">
+  <div class="flex items-center justify-between gap-14 max-lg:flex-col max-lg:gap-10">
+    <div class="flex max-w-screen-md flex-col items-center justify-center gap-14 max-lg:max-w-full max-lg:gap-10">
+      <h1 class="max-sm-text-3xl w-full text-6xl font-bold max-sm:text-5xl">Hai Noroc!</h1>
+      <p class="w-full text-xl max-sm:text-lg">Mă numesc Iulian și sunt captiv în capitalism. Mă pasionează matematica, filosofia politică, mă implic adesea în comunitatea română de programare competitivă și din când în când creez site-uri web.</p>
+      <MovingArrows />
     </div>
     <PhotoAtom client:visible />
   </div>
-  <HomeSection title="✍️ Blog" link="/blog">
-    <PostCollection limit={5} />
-  </HomeSection>
-  <HomeSection title="💻 Tehnologii" link="/despre">
-    <TechnologyCollection />
-  </HomeSection>
-  <HomeSection title="📚 Articole" link="/articole">
-    <PaperCollection selection={[2, 4, 8]} />
-  </HomeSection>
-  <HomeSection title="🚀 Proiecte" link="/proiecte">
-    <ProjectCollection selection={[1, 2, 3, 4]} />
-  </HomeSection>
+  <div class="mt-20 max-w-4xl [&_img:not(.emoji):only-child]:max-h-72">
+    <MarkdownContainer>
+      <Content components={{ h2: IconHeader }} />
+    </MarkdownContainer>
+  </div>
 </BaseLayout>

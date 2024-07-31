@@ -1,6 +1,0 @@
-title: Boolean Circuit Optimizations for ABE
-icon: 🚜
-abstract:
-  Articol scris alături de Alex Ioniță și Denis Banu, publicat la conferința KES 2023.
-  Prezintă patru euristici pentru optimizarea circuitelor booleene din cadrul schemelor Key-Policy Attribute-Based Encryption.
-link: https://arxiv.org/abs/2305.13008

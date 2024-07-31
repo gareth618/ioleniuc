@@ -1,21 +1,21 @@
 ---
+import { slugify } from '../../utils/slugs'
 import Rating from '../general/Rating.astro'
 
 type Props = {
   title: string
   author: string
   rating: string
-  cover: string
 }
 
-const { title, author, rating, cover } = Astro.props
+const { title, author, rating } = Astro.props
 ---
 
-<article class="flex gap-4 bg-gray-800 p-4 shadow-lg">
-  <img class="h-28" src={cover} alt={title} />
+<article class="flex gap-4 bg-gray-800 p-4">
+  <img class="h-28" src={`/book/${slugify(title)}.webp`} alt={title} />
   <div class="flex flex-col justify-between">
-    <div class="flex flex-col justify-stretch gap-2">
-      <div class="font-semibold">{title}</div>
+    <div class="flex flex-col gap-2">
+      <div class="font-bold">{title}</div>
       <div class="text-sm text-gray-400">{author}</div>
     </div>
     <Rating rating={rating} />

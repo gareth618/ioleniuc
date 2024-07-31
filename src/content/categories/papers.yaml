@@ -1,0 +1,73 @@
+- title: Boolean Circuit Optimizations for ABE
+  icon: 🚜
+  abstract:
+    Articol scris alături de Alex Ioniță și Denis Banu, publicat la conferința KES 2023.
+    Prezintă patru euristici pentru optimizarea circuitelor booleene din cadrul schemelor Key-Policy Attribute-Based Encryption.
+  link: https://arxiv.org/abs/2305.13008
+- title: Teza de Licență – Articol
+  icon: 📰
+  abstract:
+    Bazată pe articolul Boolean Circuit Optimizations for KP-ABE.
+    Datorită lipsei restricțiilor de spațiu, problema și abordarea sunt mult mai detaliate decât în articolul original.
+  link: /paper/thesis-paper.pdf
+- title: Teza de Licență – Prezentare
+  icon: 🎪
+  abstract:
+    Bazată pe articolul Boolean Circuit Optimizations for KP-ABE.
+    Aceste diapozitive au fost folosite în cadrul prezentării tezei mele de licență.
+    Cred că oferă un rezumat foarte bun asupra subiectului.
+  link: /paper/thesis-slides.pdf
+- title: Introducere în Rețelele Neuronale
+  icon: 🧠
+  abstract:
+    Articol care descrie în detaliu concepte de bază, precum procesul de backpropagation.
+    Nu eram deloc mulțumit de cursul de Rețele Neuronale, așa că mi-am făcut propriul paper.
+  link: /paper/neural-networks.pdf
+- title: Introducere în Blockchain
+  icon: ⛓️
+  abstract:
+    Partea mea din proiectul pentru Securitatea Informației.
+    Vorbește despre blockchain, proof-of-work, minerit de bitcoini, funcții hash criptografice și arbori Merkle.
+  link: /paper/blockchain.pdf
+- title: Tutorial Minesweeper în JavaScript
+  icon: 🧨
+  abstract:
+    Un tutorial detaliat care arată cum să implementezi jocul Minesweeper în Vanilla JavaScript.
+    L-am scris pentru un prieten care încerca să învețe frontend.
+  link: https://pastemd.netlify.app/pastes/nMaYWgU0Bdoo4d1RFuoy
+- title: Introducere în Combinatorică
+  icon: 🎯
+  abstract:
+    Lecție pentru InfoGym.
+    Vorbește despre concepte de bază, cum ar fi stars and bars, numerele lui Stirling de speța a II-a și principiul includerii și excluderii.
+  link: /paper/combinatorics.pdf
+- title: Trie. Algoritmul KMP
+  icon: 🌴
+  abstract:
+    Lecție pentru InfoGym.
+    Prezintă structura de date trie și algoritmul Knuth-Morris-Pratt pentru string matching.
+  link: /paper/trie-kmp.pdf
+- title: Algoritmul Aho-Corasick
+  icon: 🏝️
+  abstract:
+    Lecție pentru InfoGym.
+    Prezintă algoritmul Aho-Corasick pentru string matching, pornind de la conceptul de automat finit determinist și de la algoritmul KMP.
+  link: /paper/aho-corasick.pdf
+- title: Lucrul cu Șiruri de Caractere în C++
+  icon: 🫧
+  abstract:
+    Lecție pentru InfoGym.
+    Prezintă tipul char, conceptul de pointer, șirurile de caractere din C și clasa std::string din C++.
+  link: https://pastemd.netlify.app/pastes/darte7fNLN6iI3ZDeNx8
+- title: Introducere în STL
+  icon: 🚀
+  abstract:
+    Lecție pentru InfoGym.
+    Oferă o introducere în programarea orientată-obiect și în biblioteca STL, axată pe clasa std::vector.
+  link: /paper/stl.pdf
+- title: Probleme cu Subsecvențe
+  icon: 📚
+  abstract:
+    Lecție pentru InfoGym.
+    Trece în revistă tehnici de bază în problemele cu subsecvențe, cum ar fi sumele parțiale, șmenul lui Mars, sliding window și two pointers.
+  link: https://pastemd.netlify.app/pastes/HuenJYstyefmcAD7Yog4

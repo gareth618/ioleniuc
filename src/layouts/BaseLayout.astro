@@ -1,13 +1,12 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
-import NavLink from '../components/general/NavLink.astro'
+import NavigationLink from '../components/general/NavigationLink.astro'
 
 type Props = {
   title: string
-  category: string
 }
 
-const { title, category } = Astro.props
+const { title } = Astro.props
 ---
 
 <html class="scroll-smooth" lang="ro">
@@ -26,23 +25,22 @@ const { title, category } = Astro.props
   <body class="bg-gray-950 text-gray-200 antialiased selection:bg-green-300 selection:text-gray-950 [&_*:focus-visible]:outline-dashed [&_*:focus-visible]:outline-2 [&_*:focus-visible]:outline-offset-2 [&_*:focus-visible]:outline-gray-500">
     <header class="sticky top-0 z-30 bg-gray-900 shadow-lg">
       <div class="mx-auto flex max-w-screen-2xl justify-between px-12 py-8 max-md:p-4 [&>*]:w-fit">
-        <div class="text-2xl font-bold max-lg:text-xl max-md:hidden">Iulian Oleniuc</div>
-        <nav class="flex gap-4 max-lg:gap-2">
-          <NavLink link="/" title="Acasă" icon="🛖" color="text-yellow-300" active={category === 'home'} />
-          <NavLink link="/despre" title="Despre" icon="🦆" color="text-green-300" active={category === 'about'} />
-          <NavLink link="/articole" title="Articole" icon="📚" color="text-blue-300" active={category === 'papers'} />
-          <NavLink link="/proiecte" title="Proiecte" icon="🚀" color="text-indigo-300" active={category === 'projects'} />
-          <NavLink link="/blog" title="Blog" icon="✍️" color="text-purple-300" active={category === 'blog'} />
+        <div class="text-2xl font-bold">Iulian Oleniuc</div>
+        <nav class="flex gap-4 max-md:gap-2">
+          <NavigationLink link="/" title="Acasă" icon="🛖" />
+          <NavigationLink link="/profesional" title="Profesional" icon="🏆" />
+          <NavigationLink link="/personal" title="Personal" icon="✨" />
+          <NavigationLink link="/blog" title="Blog" icon="✍️" />
         </nav>
       </div>
     </header>
     <main class="bg-gray-950">
-      <div class="mx-auto max-w-screen-2xl p-12 max-md:px-6">
+      <div class="mx-auto max-w-screen-2xl p-12 max-md:px-4">
         <slot />
       </div>
     </main>
     <footer class="flex justify-center bg-gray-900 py-8 shadow-lg max-md:py-4">
-      <div class="text-lg font-semibold text-gray-600">Copyright © {new Date().getFullYear()} – Iulian Oleniuc</div>
+      <div class="text-lg font-bold text-gray-600">Copyright © {new Date().getFullYear()} – Iulian Oleniuc</div>
     </footer>
     <style is:global>
       p,
@@ -63,6 +61,12 @@ const { title, category } = Astro.props
         display: inline;
         margin-bottom: 0.15em;
         height: 1em;
+      }
+
+      input[type='number']::-webkit-inner-spin-button,
+      input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
       }
     </style>
   </body>

@@ -1,0 +1,21 @@
+---
+import { slugify } from '../../utils/slugs'
+
+type Props = {
+  slug: string
+  title: string
+  author: string
+}
+
+const { slug, title, author } = Astro.props
+---
+
+<a class="flex bg-gray-800 hover:bg-gray-700" href={'/note/' + slug}>
+  <div class="flex shrink-0 items-center bg-gray-700 p-2">
+    <img class="h-12 grayscale" src={`/author/${slugify(author.split(' & ')[0])}.webp`} alt={author} transition:name={slug + '-icon'} />
+  </div>
+  <div class="flex w-full justify-between gap-2 p-4 max-md:flex-col md:items-center">
+    <div class="text-xl font-bold" transition:name={slug + '-title'}>{title}</div>
+    <div class="font-semibold text-gray-400" transition:name={slug + '-author'}>{author}</div>
+  </div>
+</a>

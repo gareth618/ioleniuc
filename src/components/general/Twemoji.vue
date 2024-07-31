@@ -9,7 +9,10 @@ type Props = {
 const props = defineProps<Props>()
 
 const source = computed(() => {
-  return twemoji.parse(props.emoji, { folder: 'svg', ext: '.svg' }).replaceAll('https://twemoji.maxcdn.com/v/14.0.2/svg/', 'https://abs-0.twimg.com/emoji/v2/svg/').match(/(?<=src=").+(?=")/)![0]
+  return twemoji
+    .parse(props.emoji, { folder: 'svg', ext: '.svg' })
+    .replaceAll('https://twemoji.maxcdn.com/v/14.0.2/svg/', 'https://abs-0.twimg.com/emoji/v2/svg/')
+    .match(/(?<=src=").+(?=")/)![0]
 })
 </script>
 

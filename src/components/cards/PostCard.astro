@@ -12,16 +12,14 @@ type Props = {
 const { slug, title, icon, date } = Astro.props
 ---
 
-<a class="flex items-stretch justify-between bg-gray-800 shadow-lg hover:bg-gray-700" href={'/' + slug}>
+<a class="flex items-stretch bg-gray-800 hover:bg-gray-700" href={'/' + slug}>
   <div class="flex items-center bg-gray-700">
-    <div class="aspect-square h-14 p-3" transition:name={slug}>
+    <div class="aspect-square h-16 p-3" transition:name={slug + '-icon'}>
       <Twemoji emoji={icon} />
     </div>
   </div>
-  <div class="flex grow items-center p-4">
-    <div class="text-xl font-semibold max-sm:text-base">{title}</div>
-  </div>
-  <div class="flex min-w-fit items-center p-4 max-sm:hidden">
-    <div class="font-mono">{dateToString(date)}</div>
+  <div class="flex w-full justify-between gap-2 p-4 max-md:flex-col md:items-center">
+    <div class="text-xl font-bold" transition:name={slug + '-title'}>{title}</div>
+    <div class="font-mono font-semibold text-gray-400" transition:name={slug + '-date'}>{dateToString(date)}</div>
   </div>
 </a>

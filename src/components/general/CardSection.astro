@@ -1,0 +1,18 @@
+---
+import IconHeader from './IconHeader.astro'
+import Collapser from './Collapser.vue'
+
+type Props = {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<div class="mb-8 mt-12 flex items-center justify-between [&_h2]:m-0">
+  <IconHeader>{title}</IconHeader>
+  <Collapser client:visible id={title} />
+</div>
+<div id={title}>
+  <slot />
+</div>
