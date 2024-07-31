@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /profesional/
+Disallow: /personal/
+Disallow: /tag/
