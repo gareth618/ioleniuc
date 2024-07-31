@@ -20,6 +20,6 @@ const { slug, title, icon, date } = Astro.props
   </div>
   <div class="flex w-full justify-between gap-2 p-4 max-md:flex-col md:items-center">
     <div class="text-xl font-bold" transition:name={slug + '-title'}>{title}</div>
-    <div class="font-mono font-semibold text-gray-400" transition:name={slug + '-date'}>{dateToString(date)}</div>
+    <div class="font-semibold text-gray-400" transition:name={slug + '-date'}>{dateToString(date)}</div>
   </div>
 </a>
