@@ -1,0 +1,10 @@
+---
+import { Image } from 'astro:assets'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import error from '../assets/pages/404.png'
+---
+
+<BaseLayout title="Eroare 404">
+  <h1 class="mb-12 text-5xl font-bold">Eroare 404</h1>
+  <Image class="w-full max-w-96" src={error} alt="Eroare 404" />
+</BaseLayout>
