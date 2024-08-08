@@ -35,7 +35,7 @@ const { Content } = await post.render()
     <section class="mt-12 flex flex-wrap gap-2">
       {
         post.data.tags.map(tag => (
-          <a class="bg-gray-800 px-2 py-1 hover:bg-gray-700" href={'/tag/' + slugify(tag)}>
+          <a class="bg-gray-800 px-2 py-1 hover:bg-gray-700" href={`/tag/${slugify(tag)}/`}>
             {tag}
           </a>
         ))

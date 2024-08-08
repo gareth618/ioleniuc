@@ -12,7 +12,7 @@ const anchor = slugify(title)
 ---
 
 <h2 class="mb-8 mt-12 flex scroll-mt-36 items-center gap-4 text-3xl font-bold max-md:scroll-mt-28 max-sm:text-2xl" id={anchor}>
-  <a class="aspect-square h-8 transition-transform hover:-rotate-45" href={'#' + anchor}>
+  <a class="aspect-square h-8 transition-transform hover:-rotate-45" href={`#${anchor}`}>
     <Twemoji emoji={icon} />
   </a>
   <div>{title}</div>

@@ -12,9 +12,9 @@ type Props = {
 const { slug, title, icon, date } = Astro.props
 ---
 
-<a class="flex items-stretch bg-gray-800 hover:bg-gray-700" href={'/' + slug}>
-  <div class="flex items-center bg-gray-700">
-    <div class="aspect-square h-16 p-3" transition:name={slug + '-icon'}>
+<a class="flex bg-gray-800 hover:bg-gray-700" href={`/${slug}/`}>
+  <div class="flex items-center bg-gray-700 p-3">
+    <div class="aspect-square h-12" transition:name={slug + '-icon'}>
       <Twemoji emoji={icon} />
     </div>
   </div>
