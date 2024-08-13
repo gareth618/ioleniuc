@@ -19,7 +19,9 @@ const { Content } = await note.render()
 <BaseLayout title={note.data.title}>
   <div class="max-w-3xl">
     <section class="mb-12 flex gap-8 max-md:flex-col max-md:gap-4 md:items-center">
-      <img class="h-20 w-fit grayscale" src={`/author/${slugify(note.data.author.split(' & ')[0])}.webp`} alt={note.data.author} transition:name={note.slug + '-icon'} />
+      <a class="hover:sepia" href={note.data.link} target="_blank">
+        <img class="h-20 w-fit grayscale" src={`/author/${slugify(note.data.author.split(' & ')[0])}.webp`} alt={note.data.author} transition:name={note.slug + '-icon'} />
+      </a>
       <div class="flex flex-col gap-2">
         <h1 class="text-5xl font-bold" transition:name={note.slug + '-title'}>{note.data.title}</h1>
         <div class="font-semibold text-gray-400" transition:name={note.slug + '-author'}>{note.data.author}</div>

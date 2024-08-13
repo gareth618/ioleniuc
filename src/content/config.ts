@@ -59,6 +59,7 @@ const notes = defineCollection({
   schema: z.object({
     title: z.string(),
     author: z.string(),
+    link: z.string().url(),
   }),
 })
 
