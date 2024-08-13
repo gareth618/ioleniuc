@@ -4,12 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import CardSection from '../components/general/CardSection.astro'
 import BookCard from '../components/cards/BookCard.astro'
 import SeriesCard from '../components/cards/SeriesCard.astro'
-import RecipeCard from '../components/cards/RecipeCard.vue'
-import type { Book, Series, Recipe } from '../content/config'
+import type { Book, Series } from '../content/config'
 
 const books = (await getCollection('categories')).find(category => category.id === 'books')!.data as Book[]
 const series = (await getCollection('categories')).find(category => category.id === 'series')!.data as Series[]
-const recipes = (await getCollection('categories')).find(category => category.id === 'recipes')!.data as Recipe[]
 ---
 
 <BaseLayout title="Personal">
@@ -22,11 +20,6 @@ const recipes = (await getCollection('categories')).find(category => category.id
   <CardSection title="🍿 Seriale Văzute">
     <section class="my-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
       {series.map(serial => <SeriesCard title={serial.title} seasons={serial.seasons} rating={serial.rating} />)}
-    </section>
-  </CardSection>
-  <CardSection title="🍽️ Rețete Gătite">
-    <section class="my-8 grid gap-4 lg:grid-cols-2">
-      {recipes.map(recipe => <RecipeCard client:visible title={recipe.title} youtube={recipe.youtube} ingredients={recipe.ingredients} />)}
     </section>
   </CardSection>
 </BaseLayout>

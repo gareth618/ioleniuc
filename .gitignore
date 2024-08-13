@@ -2,4 +2,12 @@ dist/
 .astro/
 node_modules/
 .DS_Store
+
 inputs/
+
+src/content/posts/-*.mdx
+src/content/notes/-*.mdx
+
+src/pages/retete.astro
+src/components/cards/RecipeCard.vue
+src/content/categories/recipes.yaml
