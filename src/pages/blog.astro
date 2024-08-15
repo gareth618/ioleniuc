@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import CardSection from '../components/general/CardSection.astro'
 import PostCard from '../components/cards/PostCard.astro'
 import NoteCard from '../components/cards/NoteCard.astro'
+import { slugify } from '../utils/slugs'
 
 const posts = (await getCollection('posts'))
   .map(post => ({
@@ -26,8 +27,8 @@ const notes = (await getCollection('notes'))
     author: note.data.author,
   }))
   .sort((note1, note2) => {
-    if (note1.title.toLowerCase() < note2.title.toLowerCase()) return -1
-    if (note1.title.toLowerCase() > note2.title.toLowerCase()) return +1
+    if (slugify(note1.title) < slugify(note2.title)) return -1
+    if (slugify(note1.title) > slugify(note2.title)) return +1
     return 0
   })
 ---
