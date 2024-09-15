@@ -23,30 +23,32 @@ const { Content } = await note.render()
       <img class="h-20 w-fit grayscale" src={`/author/${slugify(note.data.author.split(' & ')[0])}.webp`} alt={note.data.author} transition:name={note.data.author + '-icon'} />
       <div class="flex flex-col gap-2">
         <h1 class="text-5xl font-bold" transition:name={note.slug + '-title'}>{note.data.title}</h1>
-        <div class="flex flex-wrap gap-x-2 font-semibold text-gray-400">
+        <div class="flex flex-wrap gap-x-2 font-semibold text-gray-400 max-md:flex-col">
           <span transition:name={note.data.author + '-author'}>{note.data.author}</span>
-          <span>•</span>
-          <span transition:name={note.slug + '-date'}>{dateToString(note.data.date)}</span>
-          {
-            note.data.linkRO && (
-              <>
-                <span>•</span>
-                <a class="hover:text-gray-200" href={note.data.linkRO} target="_blank">
-                  RO {note.data.linkRO!.endsWith('.pdf') ? '(PDF)' : ''}
-                </a>
-              </>
-            )
-          }
-          {
-            note.data.linkEN && (
-              <>
-                <span>•</span>
-                <a class="hover:text-gray-200" href={note.data.linkEN} target="_blank">
-                  EN {note.data.linkEN!.endsWith('.pdf') ? '(PDF)' : ''}
-                </a>
-              </>
-            )
-          }
+          <span class="max-md:hidden">•</span>
+          <div class="flex flex-wrap gap-x-2">
+            <span transition:name={note.slug + '-date'}>{dateToString(note.data.date)}</span>
+            {
+              note.data.linkRO && (
+                <>
+                  <span>•</span>
+                  <a class="hover:text-gray-200" href={note.data.linkRO} target="_blank">
+                    RO {note.data.linkRO!.endsWith('.pdf') ? '(PDF)' : ''}
+                  </a>
+                </>
+              )
+            }
+            {
+              note.data.linkEN && (
+                <>
+                  <span>•</span>
+                  <a class="hover:text-gray-200" href={note.data.linkEN} target="_blank">
+                    EN {note.data.linkEN!.endsWith('.pdf') ? '(PDF)' : ''}
+                  </a>
+                </>
+              )
+            }
+          </div>
         </div>
       </div>
     </section>
