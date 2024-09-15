@@ -1,4 +1,5 @@
-export function dateToString(date: Date) {
+export function dateToString(date: number | Date) {
+  if (!(date instanceof Date)) return date.toString()
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()

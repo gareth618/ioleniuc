@@ -1,21 +1,16 @@
 ---
-import { slugify } from '../../utils/slugs'
+import { dateToString } from '../../utils/dates'
 
 type Props = {
   slug: string
   title: string
-  author: string
+  date: number | Date
 }
 
-const { slug, title, author } = Astro.props
+const { slug, title, date } = Astro.props
 ---
 
-<a class="flex bg-gray-800 hover:bg-gray-700" href={`/note/${slug}/`}>
-  <div class="flex shrink-0 items-center bg-gray-700 p-3">
-    <img class="h-12 grayscale" src={`/author/${slugify(author.split(' & ')[0])}.webp`} alt={author} transition:name={slug + '-icon'} />
-  </div>
-  <div class="flex w-full justify-between gap-2 p-4 max-md:flex-col md:items-center">
-    <div class="text-xl font-bold" transition:name={slug + '-title'}>{title}</div>
-    <div class="font-semibold text-gray-400" transition:name={slug + '-author'}>{author}</div>
-  </div>
+<a class="flex justify-between gap-2 bg-gray-800 p-4 hover:bg-gray-700 max-sm:flex-col sm:items-center" href={`/note/${slug}/`}>
+  <div class="text-xl font-bold" transition:name={slug + '-title'}>{title}</div>
+  <div class="font-semibold text-gray-400" transition:name={slug + '-date'}>{dateToString(date)}</div>
 </a>

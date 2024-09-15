@@ -1,5 +1,7 @@
 import { z, defineCollection } from 'astro:content'
 
+const author = z.string()
+
 const technology = z.string()
 
 const project = z.object({
@@ -37,7 +39,7 @@ const recipe = z.object({
 
 const categories = defineCollection({
   type: 'data',
-  schema: z.union([z.array(technology), z.array(project), z.array(paper), z.array(book), z.array(series), z.array(recipe)]),
+  schema: z.union([z.array(author), z.array(technology), z.array(project), z.array(paper), z.array(book), z.array(series), z.array(recipe)]),
 })
 
 const pages = defineCollection({
@@ -59,7 +61,9 @@ const notes = defineCollection({
   schema: z.object({
     title: z.string(),
     author: z.string(),
-    link: z.string().url(),
+    date: z.union([z.date(), z.number()]),
+    linkRO: z.string().url().optional(),
+    linkEN: z.string().url().optional(),
   }),
 })
 
@@ -70,6 +74,7 @@ export const collections = {
   notes,
 }
 
+export type Author = z.infer<typeof author>
 export type Technology = z.infer<typeof technology>
 export type Project = z.infer<typeof project>
 export type Paper = z.infer<typeof paper>
