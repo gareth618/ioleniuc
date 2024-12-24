@@ -22,9 +22,6 @@
 # - title: The Metamorphosis
 #   author: Franz Kafka
 #   rating: ⭐️⭐️⭐️⭐️⭐️
-- title: White Nights
-  author: Fyodor Dostoyevsky
-  rating: ⭐️⭐️⭐️
 # - title: Wage-Labor and Capital & Value, Price, and Profit
 #   author: Karl Marx
 #   rating: ⭐️⭐️⭐️⭐️⭐️
@@ -37,6 +34,12 @@
 # - title: History Is Ours, People Make History
 #   author: Salvador Allende
 #   rating: ⭐️⭐️⭐️⭐️⭐️
+- title: Creaturi Matematice Reci
+  author: Mihai Marian
+  rating: ⭐️⭐️
+- title: White Nights
+  author: Fyodor Dostoyevsky
+  rating: ⭐️⭐️⭐️
 - title: Intro to Communist Women
   author: Red Prints Publishing
   rating: ⭐️⭐️⭐️⭐️

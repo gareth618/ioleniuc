@@ -1,4 +1,9 @@
 User-agent: *
-Disallow: /profesional/
-Disallow: /personal/
 Disallow: /tag/
+Disallow: /author/
+Disallow: /book/
+Disallow: /logo/
+Disallow: /photo/
+Disallow: /series/
+Disallow: /technology/
+Disallow: /cv.pdf
